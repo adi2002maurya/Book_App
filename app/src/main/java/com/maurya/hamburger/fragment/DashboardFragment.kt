@@ -51,11 +51,11 @@ class DashboardFragment : Fragment() {
         recylerDashboard = view.findViewById(R.id.recylerDashboard)
 
 
-        progressLayout = view.findViewById(R.id.progressLayout)
+        //   progressLayout = view.findViewById(R.id.progressLayout)
 
-        progressBar = view.findViewById(R.id.progressBar)
+        // progressBar = view.findViewById(R.id.progressBar)
 
-        progressLayout.visibility = View.VISIBLE
+        //  progressLayout.visibility = View.VISIBLE
 
 
 
@@ -76,7 +76,7 @@ class DashboardFragment : Fragment() {
 
                     try {
 
-                        progressLayout.visibility = View.GONE
+                        //   progressLayout.visibility = View.GONE
                         val success = it.getBoolean("success")
                         if (success) {
                             val data = it.getJSONArray("data")
