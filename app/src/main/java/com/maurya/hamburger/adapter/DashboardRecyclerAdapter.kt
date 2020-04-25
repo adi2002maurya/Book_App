@@ -1,14 +1,15 @@
 package com.maurya.hamburger.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.maurya.hamburger.activity.DescriptionActivity
 import com.maurya.hamburger.model.book
 import com.squareup.picasso.Picasso
 
@@ -43,13 +44,14 @@ class DashboardRecyclerAdapter(val context: Context, val itemList: ArrayList<boo
         holder.txtbookrating.text = book.bookRating
         holder.txtbookprice.text = book.bookPrice
 
-        //  holder.bookimg.setImageResource(book.bookImage)
+        //   holder.bookimg.setImageResource(book.bookImage)
 
         Picasso.get().load(book.bookImage).into(holder.bookimg)
 
         holder.llcontent.setOnClickListener {
-            Toast.makeText(context, "clicked on ${holder.txtbookName.text}", Toast.LENGTH_SHORT)
-                .show()
+            val intent = Intent(context, DescriptionActivity::class.java)
+            intent.putExtra("book_id", book.bookId)
+            context.startActivity(intent)
         }
 
     }
